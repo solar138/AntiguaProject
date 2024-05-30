@@ -1,8 +1,8 @@
 export default async function FlightPrice() {
     var now = new Date();
-    var todayDate = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + (now.getDate());
+    var todayDate = now.getFullYear() + "-" + (now.getMonth()+1+"").padStart(2, "0") + "-" + (now.getDate());
     now.setMonth(now.getMonth() + 1)
-    var nextMonthDate = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + (now.getDate());
+    var nextMonthDate = now.getFullYear() + "-" + (now.getMonth()+1+"").padStart(2, "0") + "-" + (now.getDate());
     var source = "SEA"; 
     var dest = "ANU";
     try {
@@ -19,7 +19,7 @@ export default async function FlightPrice() {
             },
             "referrer": "https://www.google.com/travel/flights?tfs=CBwQARoJcgcIARIDQU5VGglqBwgBEgNBTlVAAUgBcAGCAQsI____________AZgBAQ&tfu=KgIIAw",
             "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "f.req=" + encodeURI(JSON.stringify([null,JSON.stringify([null,[null,null,1,null,[],1,[1,0,0,0],null,null,null,null,null,null,[[[[[source,0]]],[[[dest,0]]],null,0],[[[[dest,0]]],[[[source,0]]],null,0]],null,null,null,1],["2024-05-30","2024-05-31"],null,[7,7]]
+            "body": "f.req=" + encodeURI(JSON.stringify([null,JSON.stringify([null,[null,null,1,null,[],1,[1,0,0,0],null,null,null,null,null,null,[[[[[source,0]]],[[[dest,0]]],null,0],[[[[dest,0]]],[[[source,0]]],null,0]],null,null,null,1],[todayDate, nextMonthDate],null,[7,7]]
             )])) + "&at=AAuQa1q3AG5zCXuo18SUbrpkddNr%3A1717082244131&",
             "method": "POST",
             "mode": "cors",
@@ -31,7 +31,9 @@ export default async function FlightPrice() {
         var price = prices.reduce((acc:number, cur:number) => acc + cur, 0) / prices.length;
         
         return <span>Flights from {source} to {dest} typically range between ${prices[0]}-${prices[prices.length - 1]} with an average of ${Math.round(price)}.</span>
-    } catch {
+    } catch (err) {
+        console.log(err);
+        console.log(source, dest, todayDate, nextMonthDate);
         return <span>Flight prices from {source} to {dest} are unavailable. (API Error)</span>
     }
 }

@@ -11,19 +11,19 @@ export default function Table ({content, className, bodyClassName, headClassName
     var height = content.length;
     if (hasHeader) content.splice(1, 0, header);
     return (<table className={"table-" + width + "x" + height + " " + className}>{hasHeader ? <thead className={headClassName}><tr>{content[0].reduce((acc, cur) => {
-        acc.push(<td>{typeof(cur) == "number" || typeof(cur) == "string" ? <span>{cur}</span> : cur}</td>, <td className="table-spacer"><div className="table-spacer-line first last"/></td>);
+        acc.push(<td key={Math.random()}>{typeof(cur) == "number" || typeof(cur) == "string" ? <span>{cur}</span> : cur}</td>, <td key={Math.random()} className="table-spacer"><div key={Math.random()} className="table-spacer-line first last"/></td>);
         return acc; 
     }, []).slice(0, -1)}
         </tr></thead> : undefined}<tbody className={bodyClassName}>
     {content.map(row => {
         if (row == header) {
-            return <tr className="table-spacer-horizontal">{
-                Array.from(Array(width*2-1)).map(_ => <td className="table-spacer-horizontal-cell"><div className="table-spacer-horizontal-line"></div></td>)
+            return <tr key={Math.random()} className="table-spacer-horizontal">{
+                Array.from(Array(width*2-1)).map(_ => <td key={Math.random()} className="table-spacer-horizontal-cell"><div className="table-spacer-horizontal-line"></div></td>)
             }</tr>
         }
         var j = 0;
-        return (i++ == 0) && hasHeader ? undefined : <tr className={rowClassName}>{row.reduce((acc, cur) => {
-            acc.push(<td width={cellWidth ? cellWidth + "px" : ""} className={cellClassName + (hasColumn && (j++ == 0) ? " first" : "")}>{typeof(cur) == "number" || typeof(cur) == "string" ? <span>{cur}</span> : cur}</td>, <td className="table-spacer"><div className={"table-spacer-line " + i + " " + (i == (1 + Number(hasHeader)) ? "first" : (i == height ? "last" : ""))}/></td>);
+        return (i++ == 0) && hasHeader ? undefined : <tr key={Math.random()} className={rowClassName}>{row.reduce((acc, cur) => {
+            acc.push(<td width={cellWidth ? cellWidth + "px" : ""} key={Math.random()} className={cellClassName + (hasColumn && (j++ == 0) ? " first" : "")}>{typeof(cur) == "number" || typeof(cur) == "string" ? <span>{cur}</span> : cur}</td>, <td className="table-spacer"><div className={"table-spacer-line " + i + " " + (i == (1 + Number(hasHeader)) ? "first" : (i == height ? "last" : ""))}/></td>);
             return acc; 
         }, []).slice(0, -1)}</tr>}
     )}

@@ -4,8 +4,7 @@ import Image from "next/image";
 
 export default function SimpleOption({name, label} : {name : string, label : any}) 
 {
-    return
-    <label className="option-input">
+    return <label className="option-input">
         <input className="option-button" style={{width: 0, height: 0}} type="radio" name={name}/>
         <Image className="option-button-icon empty" src={Option} alt={label}/>
         <Image className="option-button-icon filled" src={OptionActive} alt={label}/>

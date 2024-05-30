@@ -15,7 +15,7 @@ export default function Home() {
         <h1>Antigua & Barbuda Travel Guide</h1>
         <HeaderRow/>
         <p>Travel to Antigua today! See the breathtaking shorelines and beaches of the Antigua & Barbuda Islands!</p>
-        <p><Citation source="Source: Click again to hide the citation. Click the blue text to show the citation again.">Cited text is italicized like this. Click this text to show more.</Citation></p>
+        <p><Citation source="Source: Click again to hide the citation. Click the blue text to show the citation again.">Cited text is italicized like this. Click to show source.</Citation></p>
         <Image alt="Photo of Sandals Grande Long Beach in Antigua." src={LongBeach}/>
         <h2>Arriving at Antigua</h2>
         <HeaderRow/>

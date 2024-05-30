@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import { hash } from "crypto";
 
-export default ({content, className, bodyClassName, headClassName, rowClassName, cellClassName, cellWidth, hasHeader=false, hasColumn=false } : { content : any[][], className?: string, rowClassName?: string, cellClassName?: string,  bodyClassName?: string,  headClassName?: string, cellWidth?: number, hasHeader?: Boolean, hasColumn?: Boolean}) => {
+export default function Table ({content, className, bodyClassName, headClassName, rowClassName, cellClassName, cellWidth, hasHeader=false, hasColumn=false } : { content : any[][], className?: string, rowClassName?: string, cellClassName?: string,  bodyClassName?: string,  headClassName?: string, cellWidth?: number, hasHeader?: Boolean, hasColumn?: Boolean}) {
     var i = 0;
     var header : any[] = [];
     var width = content[0].length;

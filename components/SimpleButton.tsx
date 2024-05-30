@@ -1,6 +1,8 @@
 'use client';
 
-export default ({children, className, href, callback} : {children: any, className?: string, callback?: Function, href?: string}) =>
+export default function SimpleButton({children, className, href, callback} : {children: any, className?: string, callback?: Function, href?: string})
+{
+    return
     <button className={className} onClick={function() {if (callback) {callback()} if (href) {open(href)}}}>
         <div className="button-text">{children}</div>
         <div className="button-fx-container">
@@ -9,4 +11,5 @@ export default ({children, className, href, callback} : {children: any, classNam
         </div>
         <div className="button-press top"/>
         <div className="button-press bottom"/>
-    </button>
+    </button>;
+}

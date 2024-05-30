@@ -1,9 +1,9 @@
-export default async () => {
+export default async function FlightPrice() {
     var now = new Date();
     var todayDate = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + (now.getDate());
     now.setMonth(now.getMonth() + 1)
     var nextMonthDate = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + (now.getDate());
-    var source = "SEA";
+    var source = "SEA"; 
     var dest = "ANU";
     try {
         var prices : number[] = JSON.parse(JSON.parse((await (await fetch("https://www.google.com/_/TravelFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetCalendarPicker?f.sid=4091161827211086434&bl=boq_travel-frontend-ui_20240529.02_p0&hl=en&soc-app=162&soc-platform=1&soc-device=1&_reqid=229849&rt=c", {

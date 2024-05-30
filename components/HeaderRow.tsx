@@ -1,0 +1,1 @@
+export default () => <div className="header-hr-container"><div className="header-hr"></div></div>

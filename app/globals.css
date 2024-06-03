@@ -62,18 +62,25 @@ button {
 .citation-pop {
   width: 0px;
   margin: 0px;
+  border: none 0px !important;
+  outline: none;
+  opacity: 0%;
 }
 
-.citation-pop:checked + * + * {
+.citation-pop:checked + * + * + * {
   max-height: 5em;
   opacity: 100%;
   display: block;
   margin-bottom: 10px;
 }
 
-.citation-pop:checked + * {
+.citation-pop:checked + * + * {
   text-underline-offset: 3px;
   background-color: #354c78;
+}
+
+.citation-pop:checked + * {
+  transform: translateX(5px) rotate(90deg);
 }
 
 .citation * {
@@ -93,6 +100,13 @@ button {
   background-color: #354c78;
   margin: 0px;
   opacity: 0%;
+}
+
+.citation-icon {
+  position: absolute;
+  right: calc(50vw + 300px);
+  transition: 0.5s;
+  transform-origin: calc(100% - 6px);
 }
 
 hr {
@@ -206,6 +220,7 @@ button:hover .button-hover.right, button:focus .button-hover.right {
 }
 body {
   background-color: #1B2029;
+  margin: 0;
 }
 
 p {
@@ -333,4 +348,10 @@ img {
   width: 100%;
   height: calc(100vh - 181px);
   object-fit: cover;
+}
+
+header,footer {
+  width: 100%;
+  background-color: #12151a;
+  padding: 15px 0px;
 }

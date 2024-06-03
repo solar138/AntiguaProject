@@ -11,6 +11,9 @@ a {
   text-decoration-color: #fff7;
   transition: 0.15s;
 }
+.photo {
+  corner-shape: bevel;
+}
 a:hover {
   text-underline-offset: 1px;
   text-decoration-color: #fff;
@@ -58,6 +61,7 @@ button {
 
 .citation-pop {
   width: 0px;
+  margin: 0px;
 }
 
 .citation-pop:checked + * + * {
